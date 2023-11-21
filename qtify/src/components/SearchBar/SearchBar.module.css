@@ -1,0 +1,28 @@
+.searchBar {
+  display: flex;
+  width: 40%;
+  border-radius: 8px;
+  border: 1px solid var(--color-black);
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0.20000000298023224px;
+  text-align: left;
+}
+
+.input {
+  padding: 14px 20px;
+  flex-grow: 1;
+  border-radius: 8px 0 0 8px;
+  border: none;
+}
+
+.button {
+  border: none;
+  border-left: 1px solid var(--color-black);
+  /* border: 1px solid var(--color-black); */
+  border-radius: 0 8px 8px 0;
+
+  padding: 14px 23px;
+}
