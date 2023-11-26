@@ -1,0 +1,39 @@
+.wrapper {
+  margin: 24px 31px;
+  /* border: 1px solid yellow; */
+}
+.sectionHeadingDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sectionHeading {
+  color: var(--color-white);
+
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+.collapseButton {
+  color: var(--color-primary);
+  border: none;
+  background-color: var(--color-black);
+  cursor: pointer;
+
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+  letter-spacing: 0px;
+  text-align: right;
+}
+
+.albumGrid {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 24px;
+  column-gap: 40px;
+  padding: 18px 0;
+}

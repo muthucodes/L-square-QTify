@@ -1,0 +1,33 @@
+.wrapper {
+  width: 159px;
+  color: var(--color-white);
+}
+
+.card {
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.card img {
+  height: 170px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.banner {
+  background-color: var(--color-white);
+  padding: 6px 8px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  border-radius: 0 0 10px 10px;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0px;
+  text-align: left;
+}
