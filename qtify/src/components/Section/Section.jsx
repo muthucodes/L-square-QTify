@@ -1,16 +1,18 @@
 import styles from "./Section.module.css";
 import { useState, useEffect } from "react";
 import Card from "../Card/Card";
+import Carousel from "../Carousel/Carousel";
 import axios from "axios";
 
-export default function Section() {
-  const [albumData, setAlbumData] = useState(null);
+export default function Section({ type }) {
+  const [sectionData, setSectionData] = useState(null);
+  const [collapsed, setCollapsed] = useState(false);
 
   const performAPICall = async function () {
-    console.log("performing API call");
+    console.log("performing API call for", type);
     try {
       const response = await axios.get(
-        "https://qtify-backend-labs.crio.do/albums/top"
+        `https://qtify-backend-labs.crio.do/albums/${type}`
       );
       console.log(response.data);
       return response.data;
@@ -20,28 +22,39 @@ export default function Section() {
   };
 
   useEffect(() => {
-    performAPICall().then((data) => setAlbumData(data));
+    performAPICall().then((data) => setSectionData(data));
   }, []);
 
   return (
     <>
       <div className={styles.wrapper}>
         <div className={styles.sectionHeadingDiv}>
-          <p className={styles.sectionHeading}>Top Albums</p>
-          <button className={styles.collapseButton}>Collapse</button>
+          <p className={styles.sectionHeading}>{type} Albums</p>
+          <button
+            className={styles.collapseButton}
+            onClick={() => {
+              setCollapsed(!collapsed);
+            }}
+          >
+            {collapsed ? "Show All" : "Collapse"}
+          </button>
         </div>
         <div className={styles.albumGrid}>
-          {albumData !== null &&
-            albumData.map((album) => {
+          {collapsed ? (
+            <Carousel carouselData={sectionData} />
+          ) : (
+            sectionData != null &&
+            sectionData.map((item) => {
               return (
                 <Card
-                  title={album.title}
-                  image={album.image}
-                  follows={album.follows}
-                  key={album.id}
+                  title={item.title}
+                  image={item.image}
+                  follows={item.follows}
+                  key={item.id}
                 />
               );
-            })}
+            })
+          )}
         </div>
       </div>
     </>

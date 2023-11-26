@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
 import styles from "./Card.module.css";
 import { Chip } from "@mui/material";
+import { Fragment } from "react";
 
 export default function Card({ title, image, follows }) {
   return (
-    <>
+    <Fragment>
       <div className={styles.wrapper}>
         <div className={styles.card}>
           <img src={image} alt="Album cover" />
@@ -24,6 +23,6 @@ export default function Card({ title, image, follows }) {
 
         <p className={styles.title}>{title}</p>
       </div>
-    </>
+    </Fragment>
   );
 }
