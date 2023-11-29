@@ -12,8 +12,8 @@ import "./styles.css";
 // import required modules
 import { Navigation } from "swiper/modules";
 
-import { ReactComponent as PrevIcon } from "../../assets/leftNavigation.svg";
-import { ReactComponent as NextIcon } from "../../assets/rightNavigation.svg";
+// import { ReactComponent as PrevIcon } from "../../assets/leftNavigation.svg";
+// import { ReactComponent as NextIcon } from "../../assets/rightNavigation.svg";
 
 export default function Carousel({ carouselData }) {
   return (
@@ -33,6 +33,7 @@ export default function Carousel({ carouselData }) {
                   title={item.title}
                   image={item.image}
                   follows={item.follows}
+                  likes={item.likes}
                 />
               </SwiperSlide>
             );

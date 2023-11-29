@@ -9,8 +9,9 @@ function App() {
     <div className="App">
       <Navbar />
       <Hero />
-      <Section type={"top"} />
-      <Section type={"new"} />
+      <Section type={"albums"} category={"top"} />
+      <Section type={"albums"} category={"new"} />
+      <Section type={"songs"} category={""} />
     </div>
   );
 }
