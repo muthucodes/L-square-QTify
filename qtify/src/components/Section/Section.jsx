@@ -4,6 +4,7 @@ import Card from "../Card/Card";
 import Carousel from "../Carousel/Carousel";
 import axios from "axios";
 import Tab from "../Tab/Tab";
+import { Tooltip } from "@mui/material";
 
 export default function Section({ type, category }) {
   const [sectionData, setSectionData] = useState(null);
@@ -55,12 +56,22 @@ export default function Section({ type, category }) {
               sectionData != null &&
               sectionData.map((item) => {
                 return (
-                  <Card
-                    title={item.title}
-                    image={item.image}
-                    follows={item.follows}
-                    key={item.id}
-                  />
+                  <Tooltip
+                    title={
+                      item.songs
+                        ? `${item.songs.length} Songs`
+                        : `${item.likes} Likes`
+                    }
+                  >
+                    <div>
+                      <Card
+                        title={item.title}
+                        image={item.image}
+                        follows={item.follows}
+                        key={item.id}
+                      />
+                    </div>
+                  </Tooltip>
                 );
               })
             )}

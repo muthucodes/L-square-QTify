@@ -11,7 +11,7 @@ import "./styles.css";
 
 // import required modules
 import { Navigation } from "swiper/modules";
-
+import { Tooltip } from "@mui/material";
 // import { ReactComponent as PrevIcon } from "../../assets/leftNavigation.svg";
 // import { ReactComponent as NextIcon } from "../../assets/rightNavigation.svg";
 
@@ -29,12 +29,22 @@ export default function Carousel({ carouselData }) {
           carouselData.map((item) => {
             return (
               <SwiperSlide key={item.id}>
-                <Card
-                  title={item.title}
-                  image={item.image}
-                  follows={item.follows}
-                  likes={item.likes}
-                />
+                <Tooltip
+                  title={
+                    item.songs
+                      ? `${item.songs.length} Songs`
+                      : `${item.likes} Likes`
+                  }
+                >
+                  <div>
+                    <Card
+                      title={item.title}
+                      image={item.image}
+                      follows={item.follows}
+                      likes={item.likes}
+                    />
+                  </div>
+                </Tooltip>
               </SwiperSlide>
             );
           })}

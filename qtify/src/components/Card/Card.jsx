@@ -1,10 +1,12 @@
 import styles from "./Card.module.css";
 import { Chip } from "@mui/material";
 import { Fragment } from "react";
+// import { Tooltip } from "@mui/material";
 
 export default function Card({ title, image, follows = null, likes = null }) {
   return (
     <Fragment>
+      {/* <Tooltip title="Card"> */}
       <div className={styles.wrapper}>
         <div className={styles.card}>
           <img src={image} alt="Album/Song cover" />
@@ -23,6 +25,7 @@ export default function Card({ title, image, follows = null, likes = null }) {
 
         <p className={styles.title}>{title}</p>
       </div>
+      {/* </Tooltip> */}
     </Fragment>
   );
 }
